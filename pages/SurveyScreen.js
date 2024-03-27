@@ -10,7 +10,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Header from "../components/Header";
 
-const SondageScreen = () => {
+const SurveyScreen = () => {
     const [openSurvey, setOpenSurvey] = useState(null); // No survey is open initially
 
     const toggleSurvey = (id) => {
@@ -264,4 +264,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SondageScreen;
+export default SurveyScreen;

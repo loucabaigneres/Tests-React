@@ -3,6 +3,7 @@ import {
     Text,
     TouchableOpacity,
     Linking,
+    Button,
     StyleSheet,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -13,25 +14,27 @@ import colors from "../variables";
 
 import Header from "../components/Header";
 
-HomeScreen = () => {
+const HomeScreen = () => {
     const navigation = useNavigation();
 
     const handlePress = (category) => {
         switch (category) {
-            case "Actualités":
-                Linking.openURL("https://www.google.com/search?q=actualités");
+            case "Projects":
+                Linking.openURL("https://participer.ville-antony.fr/fr-FR/");
                 break;
-            case "Événements":
+            case "Events":
                 navigation.navigate("Agenda");
                 break;
-            case "Météo":
-                Linking.openURL("https://www.google.com/search?q=météo");
+            case "Actu":
+                Linking.openURL(
+                    "https://www.ville-antony.fr/toutes-les-actualites"
+                );
                 break;
-            case "Annuaire":
-                Linking.openURL("https://www.google.com/search?q=annuaire");
+            case "Transports":
+                Linking.openURL("https://www.ville-antony.fr/transports");
                 break;
-            case "Projets":
-                Linking.openURL("https://participer.ville-antony.fr/fr-FR/");
+            case "Contact":
+                Linking.openURL("https://www.ville-antony.fr/contact");
                 break;
         }
     };
@@ -40,7 +43,11 @@ HomeScreen = () => {
         <View style={styles.page}>
             <Header title="Accueil" />
             <View style={styles.categories}>
-                <TouchableOpacity onPress={() => handlePress("Actualités")}>
+                <Button
+                    title="Go to settings"
+                    onPress={() => navigation.navigate("Test")}
+                ></Button>
+                <TouchableOpacity onPress={() => handlePress("Projects")}>
                     <LinearGradient
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 0 }}
@@ -56,7 +63,7 @@ HomeScreen = () => {
                             color={colors.bgColor}
                         />
                         <View>
-                            <Text style={styles.h3}>Actualités</Text>
+                            <Text style={styles.h3}>Projets</Text>
                             <Text style={styles.p}>
                                 Restez à jour avec votre commune
                             </Text>
@@ -65,9 +72,7 @@ HomeScreen = () => {
                 </TouchableOpacity>
                 <View style={styles.row}>
                     <View style={styles.col}>
-                        <TouchableOpacity
-                            onPress={() => handlePress("Événements")}
-                        >
+                        <TouchableOpacity onPress={() => handlePress("Events")}>
                             <LinearGradient
                                 start={{ x: 0, y: 0 }}
                                 end={{ x: 1, y: 0 }}
@@ -90,7 +95,9 @@ HomeScreen = () => {
                                 </View>
                             </LinearGradient>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => handlePress("Météo")}>
+                        <TouchableOpacity
+                            onPress={() => handlePress("Transports")}
+                        >
                             <LinearGradient
                                 start={{ x: 0, y: 0 }}
                                 end={{ x: 1, y: 0 }}
@@ -106,7 +113,7 @@ HomeScreen = () => {
                                     color={colors.bgColor}
                                 />
                                 <View>
-                                    <Text style={styles.h3}>Météo</Text>
+                                    <Text style={styles.h3}>Transports</Text>
                                     <Text style={styles.p}>
                                         Les dernières nouvelles
                                     </Text>
@@ -115,9 +122,7 @@ HomeScreen = () => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.col}>
-                        <TouchableOpacity
-                            onPress={() => handlePress("Annuaire")}
-                        >
+                        <TouchableOpacity onPress={() => handlePress("Actu")}>
                             <LinearGradient
                                 start={{ x: 0, y: 0 }}
                                 end={{ x: 1, y: 0 }}
@@ -133,7 +138,7 @@ HomeScreen = () => {
                                     color={colors.bgColor}
                                 />
                                 <View>
-                                    <Text style={styles.h3}>Annuaire</Text>
+                                    <Text style={styles.h3}>Actualités</Text>
                                     <Text style={styles.p}>
                                         Les dernières nouvelles
                                     </Text>
@@ -141,7 +146,7 @@ HomeScreen = () => {
                             </LinearGradient>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => handlePress("Projets")}
+                            onPress={() => handlePress("Contact")}
                         >
                             <LinearGradient
                                 start={{ x: 0, y: 0 }}

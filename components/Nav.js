@@ -1,14 +1,34 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import HomeScreen from "../pages/HomeScreen";
 import SurveyScreen from "../pages/SurveyScreen";
-import ProjectsScreen from "../pages/ProjectsScreen";
 import CalendarScreen from "../pages/CalendarScreen";
 import ProfileScreen from "../pages/ProfileScreen";
 
+import SettingsScreen from "../pages/SettingsScreen";
+
 const Tab = createBottomTabNavigator();
+const HomeStack = createStackNavigator();
+
+const HomeStackScreen = () => {
+    return (
+        <HomeStack.Navigator>
+            <HomeStack.Screen
+                name="dsds"
+                component={HomeScreen}
+                options={{ headerShown: false }}
+            />
+            <HomeStack.Screen
+                name="Test"
+                component={SettingsScreen}
+                options={{ headerShown: false }}
+            />
+        </HomeStack.Navigator>
+    );
+};
 
 const Nav = () => {
     return (
@@ -24,8 +44,6 @@ const Nav = () => {
                             iconName = focused
                                 ? "bar-chart"
                                 : "bar-chart-outline";
-                        } else if (route.name == "Projets") {
-                            iconName = focused ? "hammer" : "hammer-outline";
                         } else if (route.name == "Agenda") {
                             iconName = focused
                                 ? "calendar"
@@ -54,9 +72,8 @@ const Nav = () => {
                     headerShown: false,
                 })}
             >
-                <Tab.Screen name="Accueil" component={HomeScreen} />
+                <Tab.Screen name="Accueil" component={HomeStackScreen} />
                 <Tab.Screen name="Sondages" component={SurveyScreen} />
-                <Tab.Screen name="Projets" component={ProjectsScreen} />
                 <Tab.Screen name="Agenda" component={CalendarScreen} />
                 <Tab.Screen name="Profil" component={ProfileScreen} />
             </Tab.Navigator>

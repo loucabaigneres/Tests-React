@@ -3,8 +3,6 @@ const colors = {
     txtColor: "#03000F",
 };
 
-const texts = {
-    
-}
+const texts = {};
 
 export default colors;

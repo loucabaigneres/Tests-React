@@ -9,7 +9,7 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
 
-ProjectsScreen = () => {
+const ProjectsScreen = () => {
     return (
         <View style={styles.page}>
             <View style={styles.header}>

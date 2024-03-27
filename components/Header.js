@@ -3,7 +3,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import colors from "../variables";
 
-Header = ({ title }) => {
+const Header = ({ title }) => {
     return (
         <View style={styles.header}>
             <Text style={styles.h1}>{title}</Text>
